@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
+import ApplyButton from "@/components/ApplyButton";
 
 export const dynamic = "force-dynamic";
 
@@ -46,6 +47,7 @@ export default async function Home() {
             <h2 className="font-semibold">{job.title}</h2>
             <p className="text-sm text-gray-500">{job.company.name} · {job.location ?? "Remoto"}</p>
             <p className="mt-2 text-sm">{job.description}</p>
+            <ApplyButton jobId={job.id} />
           </li>
         ))}
       </ul>
