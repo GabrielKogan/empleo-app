@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function NewApplicantPage() {
   const router = useRouter();
@@ -35,7 +36,10 @@ export default function NewApplicantPage() {
 
   return (
     <main className="p-8 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Nuevo postulante</h1>
+      <Link href="/" className="text-sm text-gray-500 hover:underline">
+        ← Volver al inicio
+      </Link>
+      <h1 className="text-2xl font-bold mb-6 mt-2">Nuevo postulante</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

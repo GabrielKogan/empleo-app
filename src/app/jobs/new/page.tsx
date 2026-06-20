@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Company = { id: string; name: string };
 
@@ -48,7 +49,10 @@ export default function NewJobPage() {
 
   return (
     <main className="p-8 max-w-md mx-auto">
-      <h1 className="text-2xl font-bold mb-6">Nueva oferta de empleo</h1>
+      <Link href="/" className="text-sm text-gray-500 hover:underline">
+        ← Volver al inicio
+      </Link>
+      <h1 className="text-2xl font-bold mb-6 mt-2">Nueva oferta de empleo</h1>
 
       {companies.length === 0 && (
         <p className="text-sm text-gray-500 mb-4">
