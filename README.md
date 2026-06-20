@@ -20,6 +20,18 @@ para el equipo de RR.HH.
 - **Vercel** — deploy y CI/CD automático en cada push a `main`.
 - **GitHub Actions** — lint y build en cada Pull Request.
 
+## 🤖 Agente autónomo (bonus)
+
+Además de usar a Claude como copiloto de desarrollo, el repo tiene un **agente
+autónomo de revisión de código**: en cada Pull Request, [`.github/workflows/ai-pr-review.yml`](./.github/workflows/ai-pr-review.yml)
+dispara [`scripts/ai-review.mjs`](./scripts/ai-review.mjs), que lee el diff,
+le pide a la API de Claude una revisión enfocada en bugs/seguridad/casos
+borde, y publica el resultado como comentario directo en el PR — sin
+intervención humana.
+
+> Requiere un secret `ANTHROPIC_API_KEY` configurado en
+> **Settings → Secrets and variables → Actions** del repo.
+
 ## 🤖 Hicimos equipo con IA
 
 Este proyecto se desarrolló con **Claude** (Anthropic) como copiloto de desarrollo:
@@ -58,7 +70,15 @@ Abrí http://localhost:3000
 
 ## 🌐 Demo
 
-> Completar con el link de Vercel una vez deployado.
+🔗 **[https://empleo-app-vercel.vercel.app](https://empleo-app-vercel.vercel.app)**
+
+| Página | URL |
+|---|---|
+| Listado de ofertas | `/` |
+| Crear empresa | `/companies/new` |
+| Crear oferta | `/jobs/new` |
+| Crear postulante | `/applicants/new` |
+| Dashboard de métricas | `/dashboard` |
 
 ## 📄 Licencia
 
