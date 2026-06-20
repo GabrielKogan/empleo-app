@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 async function getJobs() {
   return prisma.job.findMany({
     where: { status: "ACTIVE" },
@@ -16,9 +18,20 @@ export default async function Home() {
     <main className="p-8 max-w-3xl mx-auto">
       <header className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold">Ofertas de empleo</h1>
-        <Link href="/dashboard" className="text-sm underline">
-          Ver dashboard
-        </Link>
+        <nav className="flex gap-4 text-sm">
+          <Link href="/companies/new" className="underline">
+            + Empresa
+          </Link>
+          <Link href="/jobs/new" className="underline">
+            + Oferta
+          </Link>
+          <Link href="/applicants/new" className="underline">
+            + Postulante
+          </Link>
+          <Link href="/dashboard" className="underline">
+            Dashboard
+          </Link>
+        </nav>
       </header>
 
       {jobs.length === 0 && (

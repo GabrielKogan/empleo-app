@@ -1,5 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 async function getStats() {
   const [totalJobs, activeJobs, totalApplicants, totalApplications] = await Promise.all([
     prisma.job.count(),
